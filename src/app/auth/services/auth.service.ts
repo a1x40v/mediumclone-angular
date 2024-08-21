@@ -15,7 +15,7 @@ export class AuthService {
     const url = `${environment.apiUrl}/users`;
 
     return this.http
-      .post<AuthResponseInterface>(url, { user: data })
+      .post<AuthResponseInterface>(url, data)
       .pipe(map((response) => response.user));
   }
 }
