@@ -1,5 +1,8 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+
+import { registerAction } from '../../store/actions/register.action';
 
 @Component({
   selector: 'app-register',
@@ -8,6 +11,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
   private fb = inject(FormBuilder);
+  private store = inject(Store);
+
   form!: FormGroup;
 
   ngOnInit(): void {
@@ -24,5 +29,6 @@ export class RegisterComponent implements OnInit {
 
   onSubmit(): void {
     console.log(this.form.valid);
+    this.store.dispatch(registerAction(this.form.value));
   }
 }
