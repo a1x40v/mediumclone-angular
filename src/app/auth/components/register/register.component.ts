@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 
 import { registerAction } from '../../store/actions/register.action';
 import { isSumbittingSelector } from '../../store/selectors';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ import { isSumbittingSelector } from '../../store/selectors';
 export class RegisterComponent implements OnInit {
   private fb = inject(FormBuilder);
   private store = inject(Store);
+  private authService = inject(AuthService);
 
   form!: FormGroup;
   isSubmitting$!: Observable<boolean>;
@@ -36,7 +38,10 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.form.valid);
+    console.log(this.form.value);
     this.store.dispatch(registerAction(this.form.value));
+    this.authService.register(this.form.value).subscribe((currentUser) => {
+      console.log(currentUser);
+    });
   }
 }
