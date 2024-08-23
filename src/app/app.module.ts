@@ -7,6 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { AuthModule } from './auth/auth.module';
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 import { PersistenceService } from './shared/services/persistence.service';
@@ -17,10 +18,11 @@ import { authInterceptor } from './shared/interceptors/auth.interceptor';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AuthModule,
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
+    AuthModule,
+    GlobalFeedModule,
     TopBarComponent,
   ],
   providers: [
