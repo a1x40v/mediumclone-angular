@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
 import { EffectsModule } from '@ngrx/effects';
+import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,6 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
     StoreModule.forRoot({}),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     EffectsModule.forRoot([]),
+    TopBarComponent,
   ],
   providers: [provideHttpClient()],
   bootstrap: [AppComponent],
