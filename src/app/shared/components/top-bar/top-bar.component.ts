@@ -31,9 +31,3 @@ export class TopBarComponent implements OnInit {
     this.currentUser$ = this.store.pipe(select(currentUserSelector));
   }
 }
-
-/*
-  TODO
-  На момент загрузки страницы state.auth.isLoggedIn равно null
-  В данный момент состояние null никак не обрабатывается, оба селектора возвращают false
-*/
