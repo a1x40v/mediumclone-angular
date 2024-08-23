@@ -6,10 +6,11 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { BackendErrorMessagesComponent } from '../shared/components/backend-error-messages/backend-error-messages.component';
+import { PersistenceService } from '../shared/services/persistence.service';
 import { authReducer } from './store/reducers';
-import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import { RegisterEffect } from './store/effects/register.effect';
+import { RegisterComponent } from './components/register/register.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,6 @@ const routes: Routes = [
     EffectsModule.forFeature([RegisterEffect]),
     BackendErrorMessagesComponent,
   ],
-  providers: [AuthService],
+  providers: [AuthService, PersistenceService],
 })
 export class AuthModule {}
