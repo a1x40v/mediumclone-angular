@@ -5,6 +5,8 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { FeedComponent } from './components/feed/feed.component';
 import { GetFeedEffect } from './store/effects/get-feed.effect';
+import { ErrorMessageComponent } from '../../components/error-message/error-message.component';
+import { LoadingComponent } from '../../components/loading/loading.component';
 
 @NgModule({
   declarations: [FeedComponent],
@@ -12,6 +14,8 @@ import { GetFeedEffect } from './store/effects/get-feed.effect';
     CommonModule,
     RouterLink,
     EffectsModule.forFeature([GetFeedEffect]),
+    ErrorMessageComponent,
+    LoadingComponent,
   ],
   exports: [FeedComponent],
 })
