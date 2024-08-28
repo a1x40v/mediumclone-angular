@@ -9,6 +9,7 @@ import { FeedService } from '../shared/modules/feed/services/feed.service';
 import { BannerComponent } from '../shared/components/banner/banner.component';
 import { GlobalFeedComponent } from './components/global-feed/global-feed.component';
 import { ErrorMessageComponent } from '../shared/components/error-message/error-message.component';
+import { PopularTagsModule } from '../shared/modules/popular-tags/popular-tags.module';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     StoreModule.forFeature('feed', feedReducer),
     FeedModule,
+    PopularTagsModule,
     BannerComponent,
     ErrorMessageComponent,
   ],
