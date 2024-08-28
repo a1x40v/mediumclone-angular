@@ -1,6 +1,6 @@
 import { Component, inject, Input, OnInit } from '@angular/core';
 
-import { UtilsService } from '../../../services/utils.service';
+import { UtilsService } from '../../../../services/utils.service';
 
 @Component({
   selector: 'app-pagination',
