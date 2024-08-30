@@ -9,10 +9,12 @@ import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
+import { YourFeedModule } from './your-feed/your-feed.module';
 import { AuthModule } from './auth/auth.module';
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
 import { PersistenceService } from './shared/services/persistence.service';
 import { authInterceptor } from './shared/interceptors/auth.interceptor';
+import { TagFeedModule } from './tag-feed/tag-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -27,6 +29,8 @@ import { authInterceptor } from './shared/interceptors/auth.interceptor';
     EffectsModule.forRoot([]),
     AuthModule,
     GlobalFeedModule,
+    YourFeedModule,
+    TagFeedModule,
     TopBarComponent,
   ],
   providers: [
