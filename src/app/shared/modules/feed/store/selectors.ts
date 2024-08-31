@@ -2,20 +2,20 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { FeedStateInterface } from '../types/feed-state.interface';
 
-export const authFeatureSelector =
+export const feedFeatureSelector =
   createFeatureSelector<FeedStateInterface>('feed');
 
 export const isLoadingSelector = createSelector(
-  authFeatureSelector,
+  feedFeatureSelector,
   (feedState: FeedStateInterface) => feedState.isLoading
 );
 
 export const errorSelector = createSelector(
-  authFeatureSelector,
+  feedFeatureSelector,
   (feedState: FeedStateInterface) => feedState.error
 );
 
 export const feedSelector = createSelector(
-  authFeatureSelector,
+  feedFeatureSelector,
   (feedState: FeedStateInterface) => feedState.data
 );
