@@ -5,12 +5,14 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 
 import { articleReducer } from './store/reducers';
-import { GetArticleEffect } from './store/effects/get-article-effect';
+import { GetArticleEffect } from './store/effects/get-article.effect';
 import { ArticleService as SharedArticleService } from '../shared/services/article.service';
+import { ArticleService } from './services/article.service';
 import { TagListModule } from '../shared/modules/tag-list/tag-list.module';
 import { ErrorMessageComponent } from '../shared/components/error-message/error-message.component';
 import { LoadingComponent } from '../shared/components/loading/loading.component';
 import { ArticleComponent } from './components/article/article.component';
+import { DeleteArticleEffect } from './store/effects/delete-article.effect';
 
 const routes: Routes = [
   {
@@ -24,13 +26,13 @@ const routes: Routes = [
   imports: [
     CommonModule,
     StoreModule.forFeature('article', articleReducer),
-    EffectsModule.forFeature([GetArticleEffect]),
+    EffectsModule.forFeature([GetArticleEffect, DeleteArticleEffect]),
     RouterModule.forChild(routes),
     TagListModule,
     ErrorMessageComponent,
     LoadingComponent,
   ],
   exports: [],
-  providers: [SharedArticleService],
+  providers: [SharedArticleService, ArticleService],
 })
 export class ArticleModule {}
