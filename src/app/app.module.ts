@@ -16,6 +16,7 @@ import { PersistenceService } from './shared/services/persistence.service';
 import { authInterceptor } from './shared/interceptors/auth.interceptor';
 import { TagFeedModule } from './tag-feed/tag-feed.module';
 import { ArticleModule } from './article/article.module';
+import { CreateArticleModule } from './create-article/create-article.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -32,6 +33,7 @@ import { ArticleModule } from './article/article.module';
     GlobalFeedModule,
     YourFeedModule,
     TagFeedModule,
+    CreateArticleModule,
     ArticleModule,
     TopBarComponent,
   ],
