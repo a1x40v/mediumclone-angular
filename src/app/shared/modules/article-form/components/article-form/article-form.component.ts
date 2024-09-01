@@ -10,6 +10,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { ArticleInputInterface } from '../../../../types/article-input.interface';
 import { BackendErrorsInterface } from '../../../../types/backend-errors.interface';
+import { ArticleFormModel } from '../../types/article-form-model.interface';
 
 @Component({
   selector: 'app-article-form',
@@ -38,7 +39,7 @@ export class ArticleFormComponent implements OnInit {
   }
 
   initializeForm(): void {
-    this.form = this.fb.group({
+    this.form = this.fb.group<ArticleFormModel>({
       title: this.initalValuesProps.title,
       description: this.initalValuesProps.description,
       body: this.initalValuesProps.body,
@@ -47,6 +48,12 @@ export class ArticleFormComponent implements OnInit {
   }
 
   onSubmit(): void {
+    const formValue: ArticleFormModel = this.form.value;
+    const articleInput: ArticleInputInterface = {
+      ...formValue,
+      tagList: formValue.tagList.split(' '),
+    };
+
     this.articleSubmitEvent.emit(this.form.value);
   }
 }

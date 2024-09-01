@@ -17,7 +17,7 @@ export class CreateArticleService {
     const fullUrl = environment.apiUrl + '/articles';
 
     return this.http
-      .post<SaveArticleResponseInterface>(fullUrl, articleInput)
+      .post<SaveArticleResponseInterface>(fullUrl, { article: articleInput })
       .pipe(map((response) => response.article));
   }
 }
