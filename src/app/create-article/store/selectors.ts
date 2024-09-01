@@ -2,17 +2,17 @@ import { createFeatureSelector, createSelector } from '@ngrx/store';
 
 import { CreateArticleStateInterface } from '../types/create-article-state.interface';
 
-export const articleFeatureSelector =
+export const createArticleFeatureSelector =
   createFeatureSelector<CreateArticleStateInterface>('createArticle');
 
 export const isSubmittingSelector = createSelector(
-  articleFeatureSelector,
+  createArticleFeatureSelector,
   (createArticleState: CreateArticleStateInterface) =>
     createArticleState.isSubmitting
 );
 
 export const validationErrorsSelector = createSelector(
-  articleFeatureSelector,
+  createArticleFeatureSelector,
   (createArticleState: CreateArticleStateInterface) =>
     createArticleState.validationErrors
 );
