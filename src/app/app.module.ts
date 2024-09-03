@@ -18,6 +18,7 @@ import { CreateArticleModule } from './create-article/create-article.module';
 import { EditArticleModule } from './edit-article/edit-article.module';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
+import { SettingsModule } from './settings/settings.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +38,7 @@ import { TopBarComponent } from './shared/components/top-bar/top-bar.component';
     CreateArticleModule,
     EditArticleModule,
     ArticleModule,
+    SettingsModule,
     TopBarComponent,
   ],
   providers: [
